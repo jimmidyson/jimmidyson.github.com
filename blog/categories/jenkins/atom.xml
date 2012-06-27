@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jenkins | jimmi dyson's blog]]></title>
+  <link href="http://yoursite.com/blog/categories/jenkins/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2012-06-27T16:07:15+01:00</updated>
+  <id>http://yoursite.com/</id>
+  <author>
+    <name><![CDATA[Jimmi Dyson]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pinning Jenkins plugins]]></title>
+    <link href="http://yoursite.com/blog/2012/02/20/pinning-jenkins-plugins/"/>
+    <updated>2012-02-20T09:56:00+00:00</updated>
+    <id>http://yoursite.com/blog/2012/02/20/pinning-jenkins-plugins</id>
+    <content type="html"><![CDATA[<p>The Jenkins plugin ecosystem is the single reason that Jenkins is successful. If
+there's something you need to do, chances are there is already a plugin that will help
+you.</p>
+
+<p>Most plugins are installed after the core installation, either through the update
+manager or by dropping the <em>.hpi</em> file into the <em>$JENKINS_HOME/plugins</em> directory.
+As we needed to create a stable, consistent way of creating Jenkins masters, we have
+packaged up the plugins we require separately to the core so we can upgrade plugins
+independently to upgrading the core.</p>
+
+<p>The only slight gotcha we came across doing this was if you needed to upgrade the
+bundled plugins. these bundled plugins (at least, in Jenkins 1.424.2 LTS) are
+<em><a href="https://wiki.jenkins-ci.org/display/JENKINS/CVS+Plugin">CVS plugin</a></em>, <em><a href="https://wiki.jenkins-ci.org/display/JENKINS/Maven+2+Project+Plugin">Maven plugin</a></em>, <em><a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">SSH Slaves plugin</a></em> &amp;
+<em><a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">SSH Slaves plugin</a></em>. These plugins are extracted into the plugins directory
+when the Jenkins server is started.</p>
+
+<p>We needed to upgrade the <em><a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">SSH Slaves plugin</a></em> as we were experiencing a
+<a href="https://issues.jenkins-ci.org/browse/JENKINS-3922">bug</a> with slow archiving of artifacts back to the master. This is
+reportedly fixed in release 0.21 of the <em><a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">SSH Slaves plugin</a></em>, but the version
+bundled with Jenkins 1.424.2 LTS is 0.17. We realised that dropping the updated
+version of the hpi into the <em>$JENKINS_HOME/plugins</em> was just being overwritten
+after restarting Jenkins. This was frustrating us until we actually started to read
+the rather good Jenkins documentation which told us about <em><a href="https://wiki.jenkins-ci.org/display/JENKINS/Pinned+Plugins">pinned plugins</a></em>.
+Exactly what we wanted. So in addition to dropping the <em>ssh-slaves.hpi</em> into the
+<em>$JENKINS_HOME/plugins</em> directory, we had to create an empty file called
+<em>ssh-slaves.hpi.pinned</em>. This ensures that the updated version does not get
+overwritten when Jenkins restarts.</p>
+]]></content>
+  </entry>
+  
+</feed>
