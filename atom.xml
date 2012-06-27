@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[jimmi dyson's blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2012-06-27T16:07:15+01:00</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://jimmidyson.github.com/atom.xml" rel="self"/>
+  <link href="http://jimmidyson.github.com/"/>
+  <updated>2012-06-27T16:12:52+01:00</updated>
+  <id>http://jimmidyson.github.com/</id>
   <author>
     <name><![CDATA[Jimmi Dyson]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pinning Jenkins plugins]]></title>
-    <link href="http://yoursite.com/blog/2012/02/20/pinning-jenkins-plugins/"/>
+    <link href="http://jimmidyson.github.com/blog/2012/02/20/pinning-jenkins-plugins/"/>
     <updated>2012-02-20T09:56:00+00:00</updated>
-    <id>http://yoursite.com/blog/2012/02/20/pinning-jenkins-plugins</id>
+    <id>http://jimmidyson.github.com/blog/2012/02/20/pinning-jenkins-plugins</id>
     <content type="html"><![CDATA[<p>The Jenkins plugin ecosystem is the single reason that Jenkins is successful. If
 there&#8217;s something you need to do, chances are there is already a plugin that will help
 you.</p>
